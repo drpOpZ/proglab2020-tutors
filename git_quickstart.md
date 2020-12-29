@@ -89,7 +89,7 @@ Per impostare un ALIAS (i.e. un comando personalizzato) per mostrare una "rappre
 5. Digitate `w` (comando per salvare) e `q` (comando per chiudere). Il prompt sul fondo della finestra dovrebbe mostrare `:wq`. A questo punto premete `INVIO` per eseguire i comandi, e dunque salvare il messaggio e chiudere l'editor. Se tutto è andato bene tornerete al terminale di git, il commit sarà stato effettuato e l'attuale branch sarà stato spostato sul commit appena creato. Potete usare `git status`, `git graph` e `git log` per controllare che il commit con annesso messaggio siano stati inseriti correttamente.
 
 Qui potete vedere tutto il procedimento, dalla modifica del file alla creazione del commit, del messaggio associato, fino alla verifica che il commit sia stato creato correttamente:
-(commit_tutorial.gif)[commit_tutorial.gif]
+![commit_tutorial.gif](commit_tutorial.gif)
 
 ### Ignorare dei files nel repo
 Basta creare un file chiamato `.gitignore` all'interno del repo (windows potrebbe darvi filo da torcere), aprirlo con un qualsiasi editor di testo e scrivere su ogni linea il file o i globbing pattern dei file o cartelle da ignorare. Aggiungere il file al repo è un'idea sana.
