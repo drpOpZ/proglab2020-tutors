@@ -78,7 +78,17 @@ Per impostare un ALIAS (i.e. un comando personalizzato) per mostrare una "rappre
 1. Effettuare le modifiche desiderate ai file e controllare con `git status` che i file desiderati risultino modificati (in rosso)
 2. Aggiungere i file al commit con `git add <filename>`, o `git add -A` per aggiungere tutto
 3. `git status` per controllare che i cambiamenti che salveremo sono quelli desiderati (in verde)
-4. `git commit` per creare il nuovo screenshot (e avanzare il branch corrente su di esso)
+4. `git commit -m "messaggio di <80 caratteri"` per creare il commit con annesso messaggio. **Non è possibile creare il commit senza messaggio**. In alternativa è possibile scrivere solo `git commit` per avviare la creazione del nuovo screenshot e inserire il messaggio tramite editor di testo da terminale (default: [vim](https://www.vim.org/)) per aggiungere maggiori dettagli al messaggio. Vedi avanti per istruzioni su come procedere in questo secondo caso.
+
+**NOTA:** Nel caso in cui si voglia inserire un messaggio più dettagliato lo si dovrà fare tramite un editor di testo. L'editor di testo di default è [vim](https://www.vim.org/), celeberrimo editor di testo per smanettoni da linea di comando, notoriamente controintuitivo, estremamente leggero e personalizzabile. Impararlo ad utilizzare correttamente è un'impresa piuttosto ardua, ma per il solo scopo di modificare il messaggio annesso al commit vi basterà conoscere questi pochi semplici passi:
+1. Subito dopo aver inserito `git commit` il terminale vi mostrerà il file di testo in vim **senza permettervi di modificarlo**. Per poter inserire del testo dovrete passare alla *modalità INSERT* digitando la lettera `I` sulla vostra tastiera. La scritta `--INSERT--` comparirà in basso a sinistra nella finestra.
+2. A questo punto potete modificare il file esattamente come su un banale blocco note. Inserite il commento breve (<80 chars) nella prima riga, e aggiungete ulteriori dettagli nelle righe successive se lo ritenete opportuno.
+3. Terminate le modifiche premete `ESC` per uscire dalla modalità inserimento. La scritta `--INSERT--` in basso a sinistra scomparirà.
+4. Digitate `:` per entrare nella *modalità console*, il che vi permetterà di inserire il comando per salvare le modifiche e chiudere vim. Dove prima era apparso `--INSERT--` adesso troverete `:`
+5. Digitate `w` (comando per salvare) e `q` (comando per chiudere). Il prompt sul fondo della finestra dovrebbe mostrare `:wq`. A questo punto premete `INVIO` per eseguire i comandi, e dunque salvare il messaggio e chiudere l'editor. Se tutto è andato bene tornerete al terminale di git, il commit sarà stato effettuato e l'attuale branch sarà stato spostato sul commit appena creato. Potete usare `git status`, `git graph` (NOTA: bisogna aver impostato l'Alias per utilizzare questo comando! vedi la [sezione sulla configurazione iniziale](#configurazione-iniziale-git)) e `git log` per controllare che il commit con annesso messaggio siano stati inseriti correttamente.
+
+Qui potete vedere tutto il procedimento, dalla modifica del file alla creazione del commit, del messaggio associato tramite vim, fino alla verifica che il commit sia stato creato correttamente:
+![commit_tutorial.gif](commit_tutorial.gif)
 
 ### Ignorare dei files nel repo
 Basta creare un file chiamato `.gitignore` all'interno del repo (windows potrebbe darvi filo da torcere), aprirlo con un qualsiasi editor di testo e scrivere su ogni linea il file o i globbing pattern dei file o cartelle da ignorare. Aggiungere il file al repo è un'idea sana.
